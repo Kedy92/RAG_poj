@@ -10,12 +10,12 @@ DEFAULT_DOCS = Path(__file__).resolve().parents[2] / "data" / "knowledge_base"
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Demo RAG locale pour entretien ML")
-    parser.add_argument("question", help="Question a poser aux documents")
-    parser.add_argument("--docs", default=str(DEFAULT_DOCS), help="Dossier ou fichier Markdown")
-    parser.add_argument("--top-k", type=int, default=3, help="Nombre de chunks recuperes")
-    parser.add_argument("--chunk-size", type=int, default=140, help="Taille des chunks en mots")
-    parser.add_argument("--overlap", type=int, default=35, help="Overlap entre chunks en mots")
+    parser = argparse.ArgumentParser(description="Local RAG demo for an ML interview")
+    parser.add_argument("question", help="Question to ask the documents")
+    parser.add_argument("--docs", default=str(DEFAULT_DOCS), help="Markdown file or directory")
+    parser.add_argument("--top-k", type=int, default=3, help="Number of chunks to retrieve")
+    parser.add_argument("--chunk-size", type=int, default=140, help="Chunk size in words")
+    parser.add_argument("--overlap", type=int, default=35, help="Chunk overlap in words")
     return parser
 
 

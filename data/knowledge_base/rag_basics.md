@@ -1,7 +1,7 @@
 # RAG basics
 
-Retrieval-Augmented Generation combine deux etapes: rechercher des informations pertinentes dans une base documentaire, puis demander a un modele de langage de produire une reponse a partir de ces informations. Cette approche est utile quand les connaissances changent souvent ou quand l'entreprise possede des documents internes qui ne sont pas dans les donnees d'entrainement du modele.
+Retrieval-Augmented Generation combines two steps: retrieving relevant information from a document collection, then asking a language model to produce an answer from that information. This approach is useful when knowledge changes frequently or when an organisation has internal documents that were not part of the model's training data.
 
-Une pipeline RAG classique contient l'ingestion des documents, le nettoyage, le chunking, la creation d'index, le retrieval, la construction du prompt, la generation et la citation des sources. Le modele ne doit pas inventer une reponse si le contexte retrouve ne contient pas l'information demandee.
+A typical RAG pipeline contains document ingestion, cleaning, chunking, index creation, retrieval, prompt construction, generation and source citation. The model should not invent an answer when the retrieved context does not contain the requested information.
 
-Le principal avantage est la reduction des hallucinations. Un autre avantage est la separation entre la connaissance et le modele: on peut mettre a jour les documents sans reentrainer le LLM.
+The main advantage is reducing hallucinations. Another advantage is separating knowledge from the model: documents can be updated without retraining the LLM.

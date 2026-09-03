@@ -1,7 +1,7 @@
 # Evaluation RAG
 
-Evaluer un systeme RAG demande de mesurer le retrieval et la generation. Pour le retrieval, on peut utiliser precision@k, recall@k, mean reciprocal rank et taux de couverture des documents attendus. Pour la generation, on mesure la pertinence, la factualite, la groundedness et la presence de citations correctes.
+Evaluating a RAG system requires measuring both retrieval and generation. For retrieval, useful metrics include precision@k, recall@k, mean reciprocal rank and expected-document coverage. For generation, we measure relevance, factuality, groundedness and the presence of correct citations.
 
-Les erreurs frequentes sont un mauvais chunking, un index incomplet, des documents obsoletes, un prompt trop permissif et l'absence de verification des sources. Une bonne evaluation contient un jeu de questions, des reponses attendues et les passages qui devraient etre retrouves.
+Common errors include poor chunking, an incomplete index, outdated documents, an overly permissive prompt and missing source verification. A good evaluation contains test questions, expected answers and the passages that should be retrieved.
 
-Le monitoring en production doit suivre la latence, le cout, les questions sans reponse, les sources utilisees et les retours utilisateurs.
+Production monitoring should track latency, cost, unanswered questions, sources used and user feedback.

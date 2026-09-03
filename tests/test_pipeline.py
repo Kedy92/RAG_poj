@@ -21,8 +21,8 @@ class ChunkingTest(unittest.TestCase):
 class RetrieverTest(unittest.TestCase):
     def test_retriever_returns_relevant_chunk(self) -> None:
         chunks = [
-            *chunk_text("rag.md", "RAG utilise retrieval et generation avec citations.", 20, 0),
-            *chunk_text("other.md", "Les bases SQL stockent des tables relationnelles.", 20, 0),
+            *chunk_text("rag.md", "RAG uses retrieval and generation with citations.", 20, 0),
+            *chunk_text("other.md", "SQL databases store relational tables.", 20, 0),
         ]
         retriever = TfidfRetriever().fit(chunks)
 
@@ -35,7 +35,7 @@ class PipelineTest(unittest.TestCase):
     def test_pipeline_answers_from_sample_docs(self) -> None:
         pipeline = RagPipeline.from_documents("data/knowledge_base")
 
-        answer = pipeline.ask("Quels sont les avantages de RAG ?", top_k=2)
+        answer = pipeline.ask("What are the advantages of RAG?", top_k=2)
 
         self.assertIn("Answer based", answer.answer)
         self.assertTrue(answer.citations)
