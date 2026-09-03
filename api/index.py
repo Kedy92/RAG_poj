@@ -41,6 +41,7 @@ HTML = """<!doctype html>
     <div class="label">Swedish Red Cross internship prototype</div>
     <h1>RAG-assisted application analysis</h1>
     <p>Ask a question about the synthetic application examples. The system retrieves source passages, produces an answer, and returns citations.</p>
+    <p><strong>Demo notice:</strong> This uses synthetic data and is not connected to real Swedish Red Cross applications.</p>
     <section class="panel">
       <textarea id="question">How can previous applications be classified to support future reports?</textarea>
       <button id="ask">Ask the RAG assistant</button>

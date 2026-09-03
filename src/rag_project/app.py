@@ -16,6 +16,7 @@ def main() -> None:
     st.set_page_config(page_title="RAG Application Classifier", layout="wide")
     st.title("RAG Application Classifier")
     st.caption("Prototype for classifying previous applications and reusing knowledge with citations.")
+    st.info("This demo uses synthetic data and is not connected to real Swedish Red Cross applications.")
 
     docs_path = st.sidebar.text_input("Document folder", value=str(DEFAULT_DOCS))
     top_k = st.sidebar.slider("Retrieved chunks", min_value=1, max_value=6, value=3)
