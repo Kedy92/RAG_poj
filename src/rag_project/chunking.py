@@ -7,31 +7,13 @@ import re
 WORD_RE = re.compile(r"\w+", re.UNICODE)
 STOPWORDS = {
     "a",
-    "avec",
     "and",
-    "au",
-    "aux",
-    "ce",
-    "ces",
-    "dans",
-    "de",
-    "des",
-    "du",
     "en",
-    "et",
-    "est",
     "for",
-    "la",
-    "le",
-    "les",
     "of",
     "on",
-    "ou",
-    "pour",
     "the",
     "to",
-    "un",
-    "une",
 }
 
 
