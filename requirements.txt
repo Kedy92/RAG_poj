@@ -1,0 +1,3 @@
+# Base project has no mandatory external Python dependencies.
+# Optional UI:
+streamlit>=1.36

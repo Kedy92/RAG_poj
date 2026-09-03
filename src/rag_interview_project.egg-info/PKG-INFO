@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: rag-interview-project
+Version: 0.1.0
+Summary: Projet RAG minimal et presentable pour entretien ML
+Requires-Python: >=3.10
+Provides-Extra: ui
+Requires-Dist: streamlit>=1.36; extra == "ui"
