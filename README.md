@@ -57,6 +57,12 @@ jupyter notebook notebooks/red_cross_rag_demo.ipynb
 
 It demonstrates ingestion, chunking, retrieval, cited answers, application classification and a small evaluation check using synthetic examples.
 
+## Vercel demo
+
+Vercel cannot run the Streamlit process directly. This repository includes a Vercel Python entrypoint at `api/index.py`, which provides a lightweight browser demo at the site root. Import the repository into Vercel and redeploy after the latest commit.
+
+The Streamlit app remains available for local use, while the notebook is the main interview presentation artifact.
+
 Optional Ollama mode:
 
 ```bash
