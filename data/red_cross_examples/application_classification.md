@@ -11,3 +11,5 @@ Expected outcomes: stronger local preparedness, faster response coordination and
 The application describes activities such as training volunteers, improving coordination routines, collecting needs assessments and preparing evidence for donor reporting. The document also mentions indicators related to number of trained volunteers, response time, number of households reached and quality of reporting.
 
 For a RAG system, this application should be classified with metadata such as program area, geography, donor type, outcome area, indicators and reporting obligations. These labels would make it easier to find similar applications when writing a new proposal.
+
+The key fields to extract are programme area, country or region, donor type, target group, expected outcomes, indicators and reporting obligations.

@@ -7,6 +7,7 @@ import textwrap
 import urllib.error
 import urllib.request
 
+from rag_project.chunking import tokenize
 from rag_project.retriever import RetrievalResult
 
 
@@ -27,7 +28,7 @@ class ExtractiveGenerator:
         bullets = []
         citations = []
         for index, result in enumerate(contexts, start=1):
-            excerpt = _first_sentences(result.chunk.text, max_sentences=2)
+            excerpt = _relevant_excerpt(result.chunk.text, question, max_sentences=2)
             bullets.append(f"{index}. {excerpt}")
             citations.append(f"{index}: {result.chunk.id} (score={result.score:.3f})")
 
@@ -97,3 +98,21 @@ def _first_sentences(text: str, max_sentences: int) -> str:
     selected = parts[:max_sentences]
     suffix = "." if selected else ""
     return ". ".join(selected) + suffix
+
+
+def _relevant_excerpt(text: str, question: str, max_sentences: int) -> str:
+    """Select the most question-relevant sentences for the extractive fallback."""
+    sentences = [part.strip() for part in text.replace("\n", " ").split(".") if part.strip()]
+    if not sentences:
+        return ""
+
+    query_terms = set(tokenize(question))
+    scored = []
+    for position, sentence in enumerate(sentences):
+        sentence_terms = set(tokenize(sentence))
+        score = len(query_terms & sentence_terms)
+        scored.append((score, position, sentence))
+
+    selected = sorted(scored, key=lambda item: (-item[0], item[1]))[:max_sentences]
+    selected.sort(key=lambda item: item[1])
+    return ". ".join(item[2] for item in selected) + "."

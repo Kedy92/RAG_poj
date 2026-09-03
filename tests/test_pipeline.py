@@ -40,6 +40,22 @@ class PipelineTest(unittest.TestCase):
         self.assertIn("Answer based", answer.answer)
         self.assertTrue(answer.citations)
 
+    def test_answer_excerpt_changes_with_question(self) -> None:
+        pipeline = RagPipeline.from_documents("data/red_cross_examples")
+
+        classification_answer = pipeline.ask(
+            "What fields should be extracted from previous funding applications?",
+            top_k=2,
+        )
+        reporting_answer = pipeline.ask(
+            "How can retrieved application data support report drafting?",
+            top_k=2,
+        )
+
+        self.assertNotEqual(classification_answer.answer, reporting_answer.answer)
+        self.assertIn("metadata", classification_answer.answer)
+        self.assertIn("draft", reporting_answer.answer)
+
 
 class ClassifierTest(unittest.TestCase):
     def test_classifies_synthetic_application(self) -> None:
